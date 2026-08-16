@@ -134,13 +134,12 @@ def account_kb():
 
 def top_filters_kb():
     b = InlineKeyboardBuilder()
-    b.button(text="✅ Bugun", callback_data="top_today")
-    b.button(text="Kecha", callback_data="top_yesterday")
-    b.button(text="Shu hafta", callback_data="top_week")
-    b.button(text="Shu oy", callback_data="top_month")
-    b.button(text="Hammasi", callback_data="top_all")
+    b.button(text="📅 1 haftalik", callback_data="top_week")
+    b.button(text="🗓 1 oylik", callback_data="top_month")
+    b.button(text="📆 1 yillik", callback_data="top_year")
+    b.button(text="♾ Hammasi", callback_data="top_all")
     b.button(text="◀️ Ortga", callback_data="menu_main")
-    b.adjust(2, 2, 1, 1)
+    b.adjust(2, 2, 1)
     return b.as_markup()
 
 
