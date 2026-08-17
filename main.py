@@ -135,7 +135,6 @@ async def check_onboarding(message: Message, user_id: int) -> bool:
 
     return True
 
-
 # ======================================================================
 # START / ONBOARDING
 # ======================================================================
@@ -220,7 +219,6 @@ async def open_prices(target):
         await msg.answer(PRICE_LIST_TEXT)
     if isinstance(target, CallbackQuery):
         await target.answer()
-
 
 # ======================================================================
 # XIZMATLAR (toifalar → mahsulotlar → xarid)
@@ -410,6 +408,7 @@ async def cancel_order(callback: CallbackQuery):
     if not order or order["status"] != "pending":
         await callback.answer("Bu buyurtma allaqachon qayta ishlangan.", show_alert=True)
         return
+        
     db.set_order_status(code, "cancelled")
     db.adjust_balance(order["user_id"], order["price"], "refund", note=f"Bekor qilindi #{code}")
     await safe_edit(callback, f"❌ Buyurtma #{code} bekor qilindi, mablag' balansga qaytarildi.")
